@@ -1,12 +1,18 @@
 <?php
-/*
-Plugin Name: Duplicate Products Report
-Description: Generates a report on duplicate products by name and article.
-Version: 1.0
-Author: KoSteam
-Author URI: https://t.me/koSteams
-Plugin URI: https://github.com/pro-ks/duplicate-products-report
-*/
+/**
+ * Plugin Name: Duplicate Products Report
+ * Description: Generates a report on duplicate products by name and article.
+ * Version: 1.0.1
+ * Author: KoSteam
+ * Author URI: https://t.me/koSteams
+ * Plugin URI: https://github.com/pro-ks/duplicate-products-report
+ * 
+ * Requires at least: 5.4
+ * Requires PHP: 8.1
+ * 
+ * License:     GPL2
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+**/
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -30,10 +36,17 @@ function add_plugin_settings_link($links) {
 $plugin = plugin_basename(__FILE__);
 add_filter("plugin_action_links_$plugin", 'add_plugin_settings_link');
 
-
+//подключаем перевод
 function load_duplicate_products_textdomain() {
     load_plugin_textdomain( 'duplicate-products-report', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'plugins_loaded', 'load_duplicate_products_textdomain' );
 
-
+//Проверка на наличие woocommerce
+function check_required_plugins_on_activation() {
+    if (!is_woocommerce_active()) {
+        deactivate_plugins(plugin_basename(__FILE__));
+        wp_die(esc_html__('This plugin requires WooCommerce to be activated. Please activate WooCommerce and try again.', 'duplicate-products-report'));
+    }
+}
+register_activation_hook(__FILE__, 'check_required_plugins_on_activation');

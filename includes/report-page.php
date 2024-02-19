@@ -39,45 +39,52 @@ function process_duplicate_products() {
         }
 
         function prepare_items() {
+
             global $wpdb;
-            $query = '';
+            $quer = '';
             if ($this->tab == 'title') {
-                $query = "
+                $quer = "
                     SELECT post.ID, post.post_title, postmeta.meta_value AS sku
                     FROM {$wpdb->posts} AS post
                     JOIN {$wpdb->postmeta} AS postmeta ON post.ID = postmeta.post_id
-                    WHERE post.post_type = 'product' 
-                    AND postmeta.meta_key = '_sku' 
-                    AND post.post_status = 'publish'
+                    WHERE post.post_type = %s
+                    AND postmeta.meta_key = %s
+                    AND post.post_status = %s
                     AND post.ID IN (
                         SELECT p1.ID
                         FROM {$wpdb->posts} AS p1
                         JOIN (
                             SELECT post_title
                             FROM {$wpdb->posts}
-                            WHERE post_type = 'product'
+                            WHERE post_type = %s
                             AND post_title IS NOT NULL
-                            AND post_status = 'publish'
+                            AND post_status = %s
                             GROUP BY post_title
                             HAVING COUNT(*) > 1
                         ) AS p2 ON p1.post_title = p2.post_title
                     )
                     ORDER BY post.post_title ASC
                 ";
+                
+                // Подготавливаем запрос и получаем результаты
+                $duplicate_products = $wpdb->get_results( $wpdb->prepare( $quer, 'product', '_sku', 'publish', 'product', 'publish' ), ARRAY_A );
             } elseif ($this->tab == 'sku') {
-                $query = "
+                $quer = "
                     SELECT post.ID, post.post_title, postmeta.meta_value AS sku
                     FROM {$wpdb->posts} AS post
                     JOIN {$wpdb->postmeta} AS postmeta ON post.ID = postmeta.post_id
-                    WHERE post.post_type = 'product' 
-                    AND postmeta.meta_key = '_sku' 
-                    AND post.post_status = 'publish'
+                    WHERE post.post_type = %s
+                    AND postmeta.meta_key = %s
+                    AND post.post_status = %s
                     GROUP BY postmeta.meta_value
                     HAVING COUNT(*) > 1
                 ";
+
+                // Подготавливаем запрос и получаем результаты
+                $duplicate_products = $wpdb->get_results( $wpdb->prepare( $quer, 'product', '_sku', 'publish' ), ARRAY_A );
             }
 
-            $duplicate_products = $wpdb->get_results($query, ARRAY_A);
+            // $duplicate_products = $wpdb->get_results($query, ARRAY_A);
             $data = array();
             $count = 1;
             foreach ($duplicate_products as $product) {
@@ -101,14 +108,14 @@ function process_duplicate_products() {
     $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'title'; ?>
 
     <div class="wrap">
-        <h1 class="wp-heading-inline"><?php _e('Duplicate Products Report','duplicate-products-report'); ?></h1>
+        <h1 class="wp-heading-inline"><?php esc_html_e('Duplicate Products Report','duplicate-products-report'); ?></h1>
         <div class="nav-tab-wrapper">
             <a class="nav-tab<?php echo ($active_tab === 'title' || !isset($active_tab)) ? ' nav-tab-active' : ''; ?>" href="<?php echo esc_url(menu_page_url('duplicate-products', false)); ?>">
-                <?php _e('Duplicates by Name','duplicate-products-report'); ?>
+                <?php esc_html_e('Duplicates by Name','duplicate-products-report'); ?>
 
             </a>
             <a class="nav-tab<?php echo ($active_tab === 'sku') ? ' nav-tab-active' : ''; ?>" href="<?php echo esc_url(menu_page_url('duplicate-products', false)); ?>&tab=sku">
-                <?php _e('Duplicates by SKU','duplicate-products-report'); ?>
+                <?php esc_html_e('Duplicates by SKU','duplicate-products-report'); ?>
             </a>
         </div>
 
@@ -121,9 +128,7 @@ function process_duplicate_products() {
             <div id="post-body" class="metabox-holder columns-2">
                 <div id="post-body-content">
                     <div class="meta-box-sortables ui-sortable">
-                        <form method="post">
-                            <?php $duplicate_products_table->display(); ?>
-                        </form>
+                        <?php $duplicate_products_table->display(); ?>
                     </div>
                 </div>
             </div>

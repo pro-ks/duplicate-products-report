@@ -1,9 +1,9 @@
 === Duplicate Products Report ===
 Contributors: KoSteam
 Tags: WooCommerce, products, duplicates, report
-Requires at least: 5.0
+Requires at least: 5.4
 Tested up to: 6.4.3
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,4 +49,4 @@ Initial release of the plugin.
 
 This plugin has been tested with:
 * WordPress 6.4.3
-* PHP 8.1.26
+* PHP 8.1
