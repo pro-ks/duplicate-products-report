@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Duplicate Products Report\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-19 01:16+0000\n"
-"PO-Revision-Date: 2024-02-19 01:19+0000\n"
+"PO-Revision-Date: 2024-02-19 03:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -16,16 +16,20 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.4.3\n"
 "X-Domain: duplicate-products-report"
 
+#: includes/menu.php:14
+msgid "Duplicate Products"
+msgstr "Дубли товаров"
+
 #. Name of the plugin
-#: includes/menu.php:13
+#: includes/report-page.php:111 includes/menu.php:13
 msgid "Duplicate Products Report"
 msgstr "Отчет о дублирующихся продуктах"
 
-#: includes/report-page.php:107
+#: includes/report-page.php:114
 msgid "Duplicates by Name"
 msgstr "Дубликаты по имени"
 
-#: includes/report-page.php:111
+#: includes/report-page.php:118
 msgid "Duplicates by SKU"
 msgstr "Дубликаты по артикулу"
 
@@ -33,13 +37,17 @@ msgstr "Дубликаты по артикулу"
 msgid "Edit"
 msgstr "Редактировать"
 
-#: includes/report-page.php:89
+#: includes/report-page.php:96
 msgid "Edit Product"
 msgstr "Редактировать продукт"
 
 #. Description of the plugin
 msgid "Generates a report on duplicate products by name and article."
 msgstr "Формирует отчет о дубликатах товарах по названию и артикулу."
+
+#. URI of the plugin
+msgid "https://github.com/pro-ks/duplicate-products-report"
+msgstr "https://github.com/pro-ks/duplicate-products-report"
 
 #. Author URI of the plugin
 msgid "https://t.me/koSteams"
@@ -53,7 +61,7 @@ msgstr "KoSteam"
 msgid "Product Name"
 msgstr "Наименование товара"
 
-#: duplicate-products-report.php:22
+#: duplicate-products-report.php:32
 msgid "Settings"
 msgstr "Настройки"
 
@@ -61,10 +69,14 @@ msgstr "Настройки"
 msgid "SKU"
 msgstr "Артикул"
 
-#: includes/activation.php:12
+#: duplicate-products-report.php:49
 msgid ""
 "This plugin requires WooCommerce to be activated. Please activate "
 "WooCommerce and try again."
 msgstr ""
 "Для активации этого плагина требуется WooCommerce. Пожалуйста, активируйте "
 "WooCommerce и повторите попытку."
+
+#: includes/activation.php:11
+msgid "WooCommerce is not activated"
+msgstr "WooCommerce не активирован"

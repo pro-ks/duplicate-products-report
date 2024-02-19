@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Duplicate Products Report\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-19 01:16+0000\n"
+"POT-Creation-Date: 2024-02-19 03:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,16 +16,20 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.4.3\n"
 "X-Domain: duplicate-products-report"
 
+#: includes/menu.php:14
+msgid "Duplicate Products"
+msgstr ""
+
 #. Name of the plugin
-#: includes/menu.php:13
+#: includes/report-page.php:111 includes/menu.php:13
 msgid "Duplicate Products Report"
 msgstr ""
 
-#: includes/report-page.php:107
+#: includes/report-page.php:114
 msgid "Duplicates by Name"
 msgstr ""
 
-#: includes/report-page.php:111
+#: includes/report-page.php:118
 msgid "Duplicates by SKU"
 msgstr ""
 
@@ -33,12 +37,16 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: includes/report-page.php:89
+#: includes/report-page.php:96
 msgid "Edit Product"
 msgstr ""
 
 #. Description of the plugin
 msgid "Generates a report on duplicate products by name and article."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/pro-ks/duplicate-products-report"
 msgstr ""
 
 #. Author URI of the plugin
@@ -53,7 +61,7 @@ msgstr ""
 msgid "Product Name"
 msgstr ""
 
-#: duplicate-products-report.php:22
+#: duplicate-products-report.php:32
 msgid "Settings"
 msgstr ""
 
@@ -61,8 +69,12 @@ msgstr ""
 msgid "SKU"
 msgstr ""
 
-#: includes/activation.php:12
+#: duplicate-products-report.php:49
 msgid ""
 "This plugin requires WooCommerce to be activated. Please activate "
 "WooCommerce and try again."
+msgstr ""
+
+#: includes/activation.php:11
+msgid "WooCommerce is not activated"
 msgstr ""

@@ -11,7 +11,7 @@ function add_custom_menu_item_to_woocommerce() {
     add_submenu_page(
         'edit.php?post_type=product',
         __('Duplicate Products Report', 'duplicate-products-report'),
-        'Duplicate Products',
+        __('Duplicate Products', 'duplicate-products-report'),
         'edit_shop_orders',
         'duplicate-products',
         'process_duplicate_products'
