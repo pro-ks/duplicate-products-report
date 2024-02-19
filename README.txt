@@ -7,46 +7,46 @@ Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Generates a report on duplicate products by name and article in WooCommerce.
+Генерирует отчет о дубликатах продуктов по названию и артикулу в WooCommerce.
 
-== Description ==
+== Описание ==
 
-Duplicate Products Report is a WordPress plugin that helps you identify duplicate products in your WooCommerce store. It generates a report based on product names and SKUs, making it easier for you to manage your inventory and ensure data accuracy.
+Отчет о дубликатах продуктов - это плагин WordPress, который помогает вам идентифицировать дубликаты продуктов в вашем магазине WooCommerce. Он создает отчет на основе названий продуктов и SKU, что облегчает управление вашим складом и обеспечивает точность данных.
 
-Key features:
-- Generate a report on duplicate products by name and article (SKU).
-- View duplicates by name or by SKU.
-- Easily navigate to edit product pages from the report.
-- Ensure data accuracy and manage your inventory effectively.
+Основные функции:
 
-== Installation ==
+Создание отчета о дубликатах продуктов по названию и артикулу (SKU).
+Просмотр дубликатов по названию или по SKU.
+Легкая навигация к редактированию страниц продуктов из отчета.
+Обеспечение точности данных и эффективное управление вашим складом.
+== Установка ==
 
-1. Upload the plugin files to the `/wp-content/plugins/duplicate-products-report` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Navigate to WooCommerce > Duplicate Products to view the report.
+Загрузите файлы плагина в директорию /wp-content/plugins/duplicate-products-report, или установите плагин напрямую через экран плагинов WordPress.
+Активируйте плагин на экране 'Плагины' в WordPress.
+Перейдите на страницу WooCommerce > Дубликаты продуктов, чтобы просмотреть отчет.
+== Часто задаваемые вопросы ==
 
-== Frequently Asked Questions ==
+= Как плагин определяет дубликаты продуктов? =
 
-= How does the plugin identify duplicate products? =
+Плагин определяет дубликаты продуктов, сравнивая названия продуктов или SKU (артикулы). Он создает отчет, перечисляя продукты с одинаковым названием или SKU, что позволяет вам легко просматривать и управлять дубликатами.
 
-The plugin identifies duplicate products by comparing product names or SKUs (article numbers). It generates a report listing products with the same name or SKU, making it easy for you to review and manage duplicates.
+= Могу ли я редактировать дубликаты продуктов непосредственно из отчета? =
 
-= Can I edit duplicate products directly from the report? =
+Да, вы можете легко переходить к редактированию страниц продуктов непосредственно из отчета. Просто нажмите на ссылку "Редактировать" рядом с каждым дубликатом продукта, чтобы внести необходимые изменения.
 
-Yes, you can easily navigate to edit product pages directly from the report. Simply click on the "Edit" link next to each duplicate product to make changes as needed.
-
-== Changelog ==
-
-= 1.0 =
-* Initial release.
-
-== Upgrade Notice ==
+== Изменения ==
 
 = 1.0 =
-Initial release of the plugin.
 
-== Tested with ==
+Первый выпуск.
+== Уведомление об обновлении ==
 
-This plugin has been tested with:
-* WordPress 6.4.3
-* PHP 8.1
+= 1.0 =
+Первый выпуск плагина.
+
+== Проверено с ==
+
+Этот плагин протестирован с:
+
+WordPress 6.4.3
+PHP 8.1
